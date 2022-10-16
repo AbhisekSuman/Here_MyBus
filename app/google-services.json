@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "267857091659",
+    "project_id": "heremybus",
+    "storage_bucket": "heremybus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267857091659:android:b264b9ed2baf9a990581ce",
+        "android_client_info": {
+          "package_name": "com.example.heremybus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267857091659-9stpuj438bb3bb27sh398uadcb4emf8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6CLV75g6T1BgL1sTaPm6nE8pqTDNErM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267857091659-9stpuj438bb3bb27sh398uadcb4emf8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
