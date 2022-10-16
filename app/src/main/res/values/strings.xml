@@ -3,4 +3,5 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_bus1_user_maps">Bus1UserMaps</string>
     <string name="title_activity_bus1_driver">Bus1Driver</string>
+    <string name="here_my_bus">Here My Bus</string>
 </resources>
