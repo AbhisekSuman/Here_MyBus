@@ -1,8 +1,13 @@
 package com.example.heremybus;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -47,5 +52,31 @@ public class Bus1UserMaps extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.driver:
+                Toast.makeText(this, "Welcome to Driver Page!!", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.feedback:
+                Toast.makeText(this, "Your feedback is valuable for us.", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.aboutus:
+                Toast.makeText(this, "It's About Us", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.logout:
+                Toast.makeText(this, "Bye!!", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return true;
     }
 }

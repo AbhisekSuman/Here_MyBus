@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <ImageView
         android:id="@+id/image1"
         android:layout_width="237dp"
@@ -15,12 +17,9 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="16dp" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/clickanimation"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:lottie_rawRes="@raw/clickeffect"
-        />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
