@@ -42,13 +42,31 @@
             android:exported="false"
             android:label="@string/title_activity_bus1_user_maps" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true" >
+            android:name=".Login"
+            android:exported="false"
+            android:label="Login"/>
+        <activity
+            android:name=".Register"
+            android:exported="false"
+            android:label="Register"/>
+        <activity
+            android:name=".Splash_screen"
+            android:exported="true"
+            android:label="SpalshScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
 
             <meta-data
                 android:name="android.app.lib_name"
