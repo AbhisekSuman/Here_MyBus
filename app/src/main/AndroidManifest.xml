@@ -51,8 +51,7 @@
             android:label="Register"/>
         <activity
             android:name=".Splash_screen"
-            android:exported="true"
-            android:label="SpalshScreen">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

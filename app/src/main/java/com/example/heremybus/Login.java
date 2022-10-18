@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
         eregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(Login.this,MainActivity.class);
+                Intent intent =new Intent(Login.this,Register.class);
                 startActivity(intent);
 //                startActivity(new Intent(getApplicationContext(),Register.class));
             }
