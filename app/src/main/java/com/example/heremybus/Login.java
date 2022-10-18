@@ -3,7 +3,9 @@ package com.example.heremybus;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -36,15 +38,27 @@ public class Login extends AppCompatActivity {
         elogin = findViewById(R.id.button3);
         eregister = findViewById(R.id.register);
 
+        final SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
+
+        final String type = sharedPreferences.getString("Email","");
+        if (type.isEmpty()){
+            Toast.makeText(getApplicationContext(), "please Login", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
+            finish();
+        }
+
 
         fauth = FirebaseAuth.getInstance();
 
         eregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(Login.this,Register.class);
-                startActivity(intent);
-//                startActivity(new Intent(getApplicationContext(),Register.class));
+//                Intent intent =new Intent(Login.this,Register.class);
+//                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(),Register.class));
             }
         });
 
@@ -52,8 +66,18 @@ public class Login extends AppCompatActivity {
         elogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+
                 String email = eemail.getText().toString().trim();
                 String password = epassword.getText().toString().trim();
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("Email",email);
+                editor.putString("Password",password);
+                editor.commit();
+
+//                Toast.makeText(getApplicationContext(), "Login Succesful", Toast.LENGTH_SHORT).show();
+//                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+//                startActivity(i);
 
                 if(TextUtils.isEmpty(email))
                 {
@@ -73,13 +97,22 @@ public class Login extends AppCompatActivity {
                     return;
                 }
 
-                fauth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                fauth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
-                            Toast.makeText(getApplicationContext(), "Log In Sucesful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            Toast.makeText(getApplicationContext(), "Login Sucesful", Toast.LENGTH_SHORT).show();
+//                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            Intent inte = new Intent(getApplicationContext(),MainActivity.class);
+                            inte.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(inte);
+                            finish();
+//                            Intent intent =new Intent(Login.this,MainActivity.class);
+//                            startActivity(intent);
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

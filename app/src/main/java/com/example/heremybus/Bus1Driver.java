@@ -81,7 +81,7 @@ public class Bus1Driver extends FragmentActivity implements OnMapReadyCallback, 
                         if (location != null) {
                             myMarker.setPosition(new LatLng(location.getLatitude(),location.getLongitude()));
                             LatLng Bus = new LatLng(location.getLatitude(), location.getLongitude());
-                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Bus, 18), 5000, null);
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Bus, 18), 3000, null);
 
                         }
                     }catch (Exception e){
