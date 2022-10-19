@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
 
         final String type = sharedPreferences.getString("Email","");
         if (type.isEmpty()){
-            Toast.makeText(getApplicationContext(), "please Login", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please Login", Toast.LENGTH_SHORT).show();
         }
         else {
             Intent i = new Intent(getApplicationContext(),MainActivity.class);
