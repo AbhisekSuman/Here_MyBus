@@ -1,8 +1,5 @@
 package com.example.heremybus;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,8 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -65,6 +64,7 @@ public class Register extends AppCompatActivity {
                 String password1 = epassword1.getText().toString().trim();
                 final String fullname = efullname.getText().toString().trim();
                 final String confirm = econfirm.getText().toString().trim();
+
 
                 if (TextUtils.isEmpty(email)) {
                     eemail.setError("Email is Required");

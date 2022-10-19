@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -16,6 +17,9 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -174,5 +178,26 @@ public class Bus1Driver extends FragmentActivity implements OnMapReadyCallback, 
     private void saveLocation(Location location) {
 
         reference.setValue(location);
+    }
+
+    //    For menu bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu_1) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_1, menu_1);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.driver){
+            Intent intent = new Intent(Bus1Driver.this, driver.class);
+            startActivity(intent);
+            Toast.makeText(this, "Driver", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
