@@ -59,7 +59,7 @@ public class BackGround_Servies extends Service{
         PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent1,0);
 
         Notification notification = new NotificationCompat.Builder(this,"Channell").setContentText("Appplication is Running")
-                .setContentTitle("ForeGround Service")
+                .setContentTitle("Location Service")
                 .setSmallIcon(R.mipmap.ic_launcher_foreground)
                 .setContentIntent(pendingIntent).build();
 

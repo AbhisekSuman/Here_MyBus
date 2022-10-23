@@ -50,37 +50,13 @@ public class MainActivity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startService(new Intent(getApplicationContext(),BackGround_Servies.class));
-                    Intent i = new Intent(MainActivity.this,Bus1Driver.class);
+//                    startService(new Intent(getApplicationContext(),BackGround_Servies.class));
+                    Intent i = new Intent(MainActivity.this,Driver1.class);
                     startActivity(i);
                 }
             });
 
 
-        /*Intent serviceIntent = new Intent(this, BackGround_Servies.class);
-        startForegroundService(serviceIntent);
-
-        public boolean foreGround(){
-            ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-            for (ActivityManager.RunningServiceInfo service : activityManager.getRunningServices(Integer.MAX_VALUE)){
-                if (BackGround_Servies.class.getName().equals(service.service.getClassName())){
-                    return true;
-                }
-            }
-            return;
-        }*/
-
-
-        Intent intent = new Intent(this,BackGround_Servies.class);
-
-        if (Build.VERSION.SDK_INT >= 0){
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                startForegroundService(intent);
-            }
-            else {
-                stopService(intent);
-            }
-        }
 
 
         textView = findViewById(R.id.textView);

@@ -29,6 +29,11 @@ public class Login extends AppCompatActivity {
     Button elogin;
     TextView eregister;
 
+    String correctemail = "mybus@gmail.com";
+    String correctpassword = "123654";
+    Boolean isvalid = false;
+    private int counter = 5;
+
     FirebaseAuth fauth;
 
     @Override
@@ -108,6 +113,23 @@ public class Login extends AppCompatActivity {
                     return;
                 }
 
+//                Driver Login
+                isvalid = validate(email,password);
+
+                if (!isvalid) {
+                    counter--;
+                    Toast.makeText(Login.this, "Incorrect Credentials", Toast.LENGTH_SHORT).show();
+                    if (counter == 0) {
+                        elogin.setEnabled(false);
+                    }
+
+                }
+                else {
+                    Toast.makeText(Login.this, "Login SuccessFull", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),Driver1.class);
+                    startActivity(intent);
+                }
+
                 fauth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -129,5 +151,13 @@ public class Login extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private Boolean validate(String email, String password) {
+        if (email.equals(correctemail) && password.equals(correctpassword)) {
+            return  true;
+
+        }
+        return  false;
     }
 }
