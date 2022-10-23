@@ -32,10 +32,11 @@
         android:text="HEllo"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bus1"
         app:layout_constraintVertical_bias="0.902"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="143dp" />
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/bus2"
@@ -46,6 +47,18 @@
         app:layout_constraintStart_toStartOf="@+id/clickanimation"
         app:layout_constraintTop_toTopOf="@+id/clickanimation"
         app:srcCompat="@drawable/bus2pr" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Click here to start background Service"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/bus2"
+        tools:layout_editor_absoluteX="59dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

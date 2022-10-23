@@ -2,10 +2,14 @@ package com.example.heremybus;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,6 +20,7 @@ import android.location.Location;
 //import android.location.LocationListener;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -87,6 +92,11 @@ public class Bus1Driver extends FragmentActivity implements OnMapReadyCallback, 
                             LatLng Bus = new LatLng(location.getLatitude(), location.getLongitude());
                             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Bus, 18), 3000, null);
 
+                            if(location.getLatitude()==0 & location.getLongitude()==0){
+
+                            }
+
+
                         }
                     }catch (Exception e){
                         Toast.makeText(Bus1Driver.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -105,13 +115,15 @@ public class Bus1Driver extends FragmentActivity implements OnMapReadyCallback, 
     private void getLocationUpdates() {
         if (manager != null) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED)
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)== PackageManager.PERMISSION_GRANTED)
             {
                 if (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                     manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DISTANCE,this);
-                } else if (manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                }else if (manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
                     manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
-                } else {
+                }
+                else {
                     Toast.makeText(this, "No Provider Enabled", Toast.LENGTH_SHORT).show();
                 }
             }else {
@@ -200,4 +212,25 @@ public class Bus1Driver extends FragmentActivity implements OnMapReadyCallback, 
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //Notification
+
+//    private void notification(){
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+//            NotificationChannel channel = new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
+//
+//            NotificationManager manager = getSystemService(NotificationManager.class);
+//            manager.createNotificationChannel(channel);
+//        }
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this
+//        "n").setContentText("Code Sphere").setSmallIcon(R.drawable.ic_baseline_notifications_active_24).setAutoCancel(true).setContentText("New Data is added");
+//
+//        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
+//        managerCompat.notify(999,builder.build());
+//    }
+
+
+
 }
+
+
