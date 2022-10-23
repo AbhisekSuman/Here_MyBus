@@ -7,23 +7,39 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie2"
+        android:layout_width="227dp"
+        android:layout_height="167dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/created"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/clickanimation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_rawRes="@raw/welcome"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-105dp" />
+
+
     <ImageView
         android:id="@+id/bus1"
         android:layout_width="400dp"
         android:layout_height="224dp"
         android:src="@drawable/bus1pr"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp"
-        tools:ignore="MissingConstraints" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/clickanimation"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:lottie_rawRes="@raw/clickeffect"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="-278dp" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -42,23 +58,24 @@
         android:id="@+id/bus2"
         android:layout_width="413dp"
         android:layout_height="287dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="260dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/clickanimation"
         app:layout_constraintTop_toTopOf="@+id/clickanimation"
         app:srcCompat="@drawable/bus2pr" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Click here to start background Service"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/bus2"
-        tools:layout_editor_absoluteX="59dp" />
+    <!--    <Button-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:text="Click here to start background Service"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/textView"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/bus2"-->
+<!--        tools:layout_editor_absoluteX="59dp" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
