@@ -41,6 +41,7 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
+        getSupportActionBar().hide();
 
         efullname = findViewById(R.id.fullname);
         eemail = findViewById(R.id.email);
