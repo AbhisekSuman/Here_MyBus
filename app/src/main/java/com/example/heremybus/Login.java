@@ -31,8 +31,22 @@ public class Login extends AppCompatActivity {
 
     String correctemail = "mybus@gmail.com";
     String correctpassword = "123654";
+    String correctemail1 = "mybus@gmail1.com";
+    String correctpassword1 = "123456";
+    String correctemail2 = "mybus@gmail2.com";
+    String correctpassword2 = "654321";
+
+
     Boolean isvalid = false;
     private int counter = 5;
+
+    Boolean isvalid1 = false;
+    private int counter1 = 5;
+
+    Boolean isvalid2 = false;
+    private int counter2 = 5;
+
+
 
     FirebaseAuth fauth;
 
@@ -57,7 +71,7 @@ public class Login extends AppCompatActivity {
         final SharedPreferences sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
 
         final String type = sharedPreferences.getString("Email","");
-        if (type.isEmpty()){
+          if (type.isEmpty()){
             Toast.makeText(getApplicationContext(), "please Login", Toast.LENGTH_SHORT).show();
         }
         else {
@@ -129,6 +143,43 @@ public class Login extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),Driver1.class);
                     startActivity(intent);
                 }
+//              Driver2 login
+
+                isvalid1 = validate1(email,password);
+
+                if (!isvalid1) {
+                    counter1--;
+                    Toast.makeText(Login.this, "Incorrect Credentials", Toast.LENGTH_SHORT).show();
+                    if (counter1 == 0) {
+                        elogin.setEnabled(false);
+                    }
+
+                }
+                else {
+                    Toast.makeText(Login.this, "Login SuccessFull", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),Bus1Driver.class);
+                    startActivity(intent);
+                }
+
+                //              Driver3 login
+
+                isvalid2 = validate2(email,password);
+
+                if (!isvalid2) {
+                    counter2--;
+                    Toast.makeText(Login.this, "Incorrect Credentials", Toast.LENGTH_SHORT).show();
+                    if (counter2 == 0) {
+                        elogin.setEnabled(false);
+                    }
+
+                }
+                else {
+                    Toast.makeText(Login.this, "Login SuccessFull", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),Map.class);
+                    startActivity(intent);
+                }
+
+
 
                 fauth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -153,6 +204,25 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    private Boolean validate2(String email, String password) {
+        if (email.equals(correctemail2) && password.equals(correctpassword2)) {
+            return  true;
+
+        }
+        return  false;
+
+
+    }
+
+    private Boolean validate1(String email, String password) {
+        if (email.equals(correctemail1) && password.equals(correctpassword1)) {
+            return  true;
+
+        }
+        return  false;
+
+    }
+
     private Boolean validate(String email, String password) {
         if (email.equals(correctemail) && password.equals(correctpassword)) {
             return  true;
@@ -160,4 +230,6 @@ public class Login extends AppCompatActivity {
         }
         return  false;
     }
+
+
 }

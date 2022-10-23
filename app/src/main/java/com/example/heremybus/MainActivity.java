@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//    @SuppressLint("MissingInflatedId")
+    //    @SuppressLint("MissingInflatedId")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,17 +44,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-// BACKGROUND SERVICE
-            setContentView(R.layout.activity_main);
-            button = findViewById(R.id.button);
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        setContentView(R.layout.activity_main);
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                    startService(new Intent(getApplicationContext(),BackGround_Servies.class));
-                    Intent i = new Intent(MainActivity.this,Driver1.class);
-                    startActivity(i);
-                }
-            });
+                Intent i = new Intent(MainActivity.this,Driver1.class);
+                startActivity(i);
+            }
+        });
 
 
 
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-            final SharedPreferences sharedPreferences = getSharedPreferences("Data", MODE_PRIVATE);
+        final SharedPreferences sharedPreferences = getSharedPreferences("Data", MODE_PRIVATE);
 
 
         if (id == R.id.driver){
